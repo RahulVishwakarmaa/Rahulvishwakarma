@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'main_page' %}">Rahul Tech Institute</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'Lucknow' %}">Lucknow</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Kanpur' %}">Kanpur</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Gorakhpur' %}">Gorakhpur</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Deoria' %}">Deoria</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'feedback' %}">Feedback</a>
+                    </li>
+                </ul>
+            </div>
+            <span class="text-white">Hellow, {{ request.user|capfirst }}  </span>&ensp;&ensp;
+                 <a href={% url 'logout' %} class="btn btn-primary text-white">Logout</a>
+
+
+        </div>
+
+    </nav>
+{% endblock %}
+
+</body>
+</html>

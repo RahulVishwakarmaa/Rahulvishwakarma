@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+<body>
+{% block content %}
+    <style>
+   .navbar{
+       visibility: hidden;
+   }
+    .cl1{
+        border: 2px solid red;
+        box-shadow: 5px 5px 15px 15px blue;
+
+        align-content: center;
+        background-color:  #009973;
+        padding: 30px;
+        margin-top:6%;
+        margin-bottom: auto;
+    }
+    .cl2{
+        margin-left: 15%;
+    }
+
+
+    .btn2{
+        margin-right: 25%;
+    }
+
+
+
+
+</style>
+  <div class="container">
+      <div class="row">
+          <div class="offset-md-4 col-md-4 cl1">
+              {% include 'alert.html' %}
+              <h1 class="text-center text-white"><b><u>Register Here....</u></b></h1><br>
+              <form method="POST" class="cl2">
+                  {% csrf_token %}
+{#                  {{ forms.as_p }}#}
+
+                  <div class="input-group">
+                      <div class="input-group-append">
+                          <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      {{ forms.first_name }}
+
+                  </div>
+
+
+                  <div class="input-group">
+                      <div class="input-group-append">
+                          <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                        {{ forms.last_name}}
+                  </div>
+
+
+                  <div class="input-group">
+                      <div class="input-group-append">
+                          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                      </div>
+                      {{ forms.email }}
+
+                  </div>
+
+
+
+                  <div class="input-group">
+                      <div class="input-group-append">
+                          <span class="input-group-text"><i class="fas fa-user-circle"></i></span>
+                      </div>
+                        {{ forms.username }}
+                  </div>
+
+
+
+                  <div class="input-group">
+                      <div class="input-group-append">
+                          <span class="input-group-text"><i class="fas fa-key"></i></span>
+                      </div>
+                      {{ forms.password1 }}
+
+                  </div>
+
+
+                  <div class="input-group">
+                      <div class="input-group-append">
+                          <span class="input-group-text"><i class="fas fa-key"></i></span>
+                      </div>
+                      {{ forms.password2 }}
+                  </div>
+
+                  <div></div>
+                  <center>
+                  <input type="submit" value="Register" class="btn btn-primary btn-sm btn1">
+                  <input type="reset" value="Clear" class="btn btn-danger btn-sm btn2">
+                  </center>
+                  <br>
+
+
+              </form>
+              <center>
+              <a href="{% url 'login' %}" class="text-white "><b>Go To Login Page...</b></a>
+              </center>
+              <br>
+
+
+          </div>
+
+      </div>
+
+  </div>
+    <script>
+      var form_fields=document.getElementsByTagName('input')
+      form_fields[1].placeholder = 'First Name...'
+      form_fields[2].placeholder = 'Last Name...'
+      form_fields[3].placeholder = 'Email...'
+      form_fields[4].placeholder = 'Username...'
+      form_fields[5].placeholder = 'Password...'
+      form_fields[6].placeholder = 'Confirm Password...'
+
+
+    </script>
+{% endblock %}
+
+</body>
+</html>

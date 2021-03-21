@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<style>
+   .navbar{
+       visibility: hidden;
+   }
+.new1{
+    text-align: center;
+}
+.col1{
+    border: 2px solid white;
+    box-shadow: 10px 10px 18px 10px red;
+    margin-top: 8%;
+    margin-bottom: auto;
+
+}
+
+</style>
+
+
+    <div class="container-fluid">
+      <div class="row">
+          <div class="offset-md-4 col-md-4 col1" >
+
+              {% include 'alert.html' %}
+              <h3 class="text-center text-white"><b>Login Here....</b></h3>
+
+
+              <form method="POST">
+                  {% csrf_token %}
+                  <label>Username:</label>
+                  <input type="text" name="username" placeholder="Enter Your Username..." class="form-control">
+                  <label>Password:</label>
+                  <input type="password" name="password" class="form-control">
+                  <center>
+                      <input type="submit" value="Login" class="btn btn-success">
+                      <input type="reset" value="Clear" placeholder="Your Password...." class="btn btn-danger">
+                  </center>
+
+              </form>
+              <br>
+              <a href="{% url 'register' %}" class="text-center">Register New Account?</a>
+              <br>
+
+
+
+
+          </div>
+
+      </div>
+
+    </div>
+
+
+{% endblock %}
+
+
+</body>
+</html>

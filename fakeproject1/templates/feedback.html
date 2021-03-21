@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+<html>
+<head>
+
+</head>
+<body>
+{% block content %}
+    <style>
+    .cl12{
+        margin-top: 7%;
+        margin-bottom: auto;
+        box-shadow: 15px 15px 15px 15px aqua;
+    }
+
+    </style>
+  <div class="container-fluid">
+      <div class="row">
+          <div class="offset-md-4 col-md-4  cl12" style="border: 5px white solid; background-color: lavenderblush">
+
+              <form method="POST">
+                  {% csrf_token %}
+                  <h1 STYLE="text-align: center;">PLEASE ENTER YOUR FEEDBACK</h1>
+                  <label>Enter Your Name</label>
+                  <input type="text" placeholder="Name" class="form-control" name="sname">
+
+                  <label>Enter your Rating</label>
+                  <input type="number" placeholder="Your Rating out of 10...." class="form-control" name="rating">
+                  <label>Enter Your Comment:</label>
+                  <textarea type="text" placeholder="Your Feedback...." class="form-control" name="feedback" rows="5"></textarea>
+
+                  <center>
+                  <input type="submit" value="Submit" class="btn btn-outline-success">
+                  <input type="reset" value="clear" class="btn btn-outline-danger">
+                  <center>
+                 <br>
+                      <br>
+
+                      {% if feedbacks %}
+                  {% for i in feedbacks %}
+                      <b> Name:</b>{{ i.name }}<br>
+                      <b>Rating:</b> {{ i.rating }}<br>
+
+                      <b>Feedback:</b> {{ i.feedback }}<br>
+                      ===============================
+                  {% endfor %}
+
+              {% else %}
+                  <h2>No feedback Available </h2>
+              {% endif %}
+
+              </form>
+          </div>
+
+      </div>
+
+  </div>
+{% endblock %}
+
+</body>
+</html>
